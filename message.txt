@@ -1,0 +1,203 @@
+USE [master]
+GO
+/****** Object:  Database [EFExample]    Script Date: 6/1/2021 5:59:49 PM ******/
+CREATE DATABASE [EFExample]
+GO
+GO
+USE [EFExample]
+GO
+/****** Object:  Table [dbo].[Course]    Script Date: 6/1/2021 5:59:49 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Course](
+[Id] [int] IDENTITY(1,1) NOT NULL,
+[Name] [varchar](200) NOT NULL,
+[TeacherId] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Staff]    Script Date: 6/1/2021 5:59:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Staff](
+[Id] [int] IDENTITY(1,1) NOT NULL,
+[Name] [varchar](200) NOT NULL,
+[Salary] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Student]    Script Date: 6/1/2021 5:59:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Student](
+[Id] [int] IDENTITY(1,1) NOT NULL,
+[Name] [varchar](200) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[StudentCourse]    Script Date: 6/1/2021 5:59:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StudentCourse](
+[StudentId] [int] NOT NULL,
+[CourseId] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+[StudentId] ASC,
+[CourseId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Teacher]    Script Date: 6/1/2021 5:59:50 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Teacher](
+[StaffId] [int] NOT NULL,
+[Specialty] [varchar](200) NULL,
+PRIMARY KEY CLUSTERED 
+(
+[StaffId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Course] ON 
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (1, N'CS101', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (2, N'MATH101', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (4, N'CS201', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (5, N'CS395', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (6, N'CS301', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (7, N'HIST101', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (8, N'HIST102', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (9, N'PHYS101', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (10, N'BasketWeaving101', 5)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (11, N'FOO101', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (12, N'BAR101', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (13, N'GEO101', NULL)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (14, N'PseudoScien101', NULL)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (15, N'PseudoScien101', 5)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (16, N'Basketweaving 402', 5)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (17, N'Basketweaving 402', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (18, N'Basketweaving 402', 6)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (19, N'Calc150', NULL)
+GO
+INSERT [dbo].[Course] ([Id], [Name], [TeacherId]) VALUES (20, N'Calc155', NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Course] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Staff] ON 
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (1, N'Anonymous Staff', 35000)
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (2, N'Mary Administrator', 211250)
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (4, N'Susan Teacher', 61812)
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (5, N'UltraRalph Teacher', 198721)
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (6, N'The Real Slim Nancy', 90661)
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (7, N'Barbara Teacher', 55631)
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (10, N'Gerrold Developer', 80000)
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (11, N'Donald Teacher', 30000)
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (12, N'Jacob Staff', 900)
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (13, N'Eric', 0)
+GO
+INSERT [dbo].[Staff] ([Id], [Name], [Salary]) VALUES (14, N'Eric 2', 0)
+GO
+SET IDENTITY_INSERT [dbo].[Staff] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Student] ON 
+GO
+INSERT [dbo].[Student] ([Id], [Name]) VALUES (1, N'John Student')
+GO
+INSERT [dbo].[Student] ([Id], [Name]) VALUES (2, N'Jane Student')
+GO
+INSERT [dbo].[Student] ([Id], [Name]) VALUES (3, N'John Doe')
+GO
+SET IDENTITY_INSERT [dbo].[Student] OFF
+GO
+INSERT [dbo].[StudentCourse] ([StudentId], [CourseId]) VALUES (1, 4)
+GO
+INSERT [dbo].[StudentCourse] ([StudentId], [CourseId]) VALUES (1, 5)
+GO
+INSERT [dbo].[StudentCourse] ([StudentId], [CourseId]) VALUES (1, 9)
+GO
+INSERT [dbo].[StudentCourse] ([StudentId], [CourseId]) VALUES (2, 1)
+GO
+INSERT [dbo].[StudentCourse] ([StudentId], [CourseId]) VALUES (2, 2)
+GO
+INSERT [dbo].[StudentCourse] ([StudentId], [CourseId]) VALUES (2, 6)
+GO
+INSERT [dbo].[StudentCourse] ([StudentId], [CourseId]) VALUES (2, 10)
+GO
+INSERT [dbo].[StudentCourse] ([StudentId], [CourseId]) VALUES (3, 1)
+GO
+INSERT [dbo].[StudentCourse] ([StudentId], [CourseId]) VALUES (3, 7)
+GO
+INSERT [dbo].[Teacher] ([StaffId], [Specialty]) VALUES (4, N'Science')
+GO
+INSERT [dbo].[Teacher] ([StaffId], [Specialty]) VALUES (5, N'Various and Sundry')
+GO
+INSERT [dbo].[Teacher] ([StaffId], [Specialty]) VALUES (6, N'History')
+GO
+INSERT [dbo].[Teacher] ([StaffId], [Specialty]) VALUES (7, N'Computer Science')
+GO
+INSERT [dbo].[Teacher] ([StaffId], [Specialty]) VALUES (11, N'Science')
+GO
+ALTER TABLE [dbo].[Course]  WITH CHECK ADD FOREIGN KEY([TeacherId])
+REFERENCES [dbo].[Teacher] ([StaffId])
+GO
+ALTER TABLE [dbo].[StudentCourse]  WITH CHECK ADD FOREIGN KEY([CourseId])
+REFERENCES [dbo].[Course] ([Id])
+GO
+ALTER TABLE [dbo].[StudentCourse]  WITH CHECK ADD FOREIGN KEY([StudentId])
+REFERENCES [dbo].[Student] ([Id])
+GO
+ALTER TABLE [dbo].[Teacher]  WITH CHECK ADD FOREIGN KEY([StaffId])
+REFERENCES [dbo].[Staff] ([Id])
+GO
+USE [master]
+GO
+ALTER DATABASE [EFExample] SET  READ_WRITE 
+GO
